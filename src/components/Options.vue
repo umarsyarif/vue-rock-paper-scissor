@@ -1,22 +1,21 @@
 <template>
-  <div class="picker">
-    <p class="current-game" v-show="store.state.currentGame.player">
-      {{ store.state.currentGame.player }} vs
-      {{ store.state.currentGame.computer }}
-    </p>
-    <Options :options="store.state.options" />
-  </div>
+  <img
+    v-for="option in options"
+    :key="option.name"
+    class="options"
+    :src="option.image"
+    :alt="option.name"
+    @click="store.methods.choose(option.name)"
+  />
 </template>
 
 <script>
-import Options from "@/components/Options";
-
 import { inject } from "vue";
 
 export default {
-  name: "Pick",
-  components: {
-    Options,
+  name: "Options",
+  props: {
+    options: { type: Object, default: {} },
   },
   setup() {
     const store = inject("store");

@@ -17,6 +17,7 @@
 import { inject } from "vue";
 
 export default {
+  name: "Score",
   setup() {
     const store = inject("store");
 

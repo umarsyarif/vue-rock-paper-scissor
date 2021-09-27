@@ -3,7 +3,10 @@ import { reactive } from "vue";
 const state = reactive({
     playerScore: 0,
     computerScore: 0,
-    options: ['Rock', 'Paper', 'Scissors'],
+    options: [
+        { name: 'Rock', image: 'assets/2.png' },
+        { name: 'Paper', image: 'assets/1.png' },
+        { name: 'Scissors', image: 'assets/3.png' }],
     currentGame: {
         player: '',
         computer: ''
@@ -14,7 +17,7 @@ const state = reactive({
 const methods = {
     choose(val) {
         const random = Math.floor(Math.random() * state.options.length)
-        _newGame(val, state.options[random])
+        _newGame(val, state.options[random].name)
     }
 }
 
